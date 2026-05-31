@@ -1,75 +1,61 @@
 
 //We're taking an array of values or a single one 
 
-function toKm(miles) 
-{
-   
-    if(Array.isArray(miles))
-    {
+const toKm = (miles) => {
+
+    if (Array.isArray(miles)) {
         let temparray = [];
-        for(let i = 0; i < miles.length; i++)
-        {
-            if(typeof(miles[i]) == "number")
-            {
+        for (let i = 0; i < miles.length; i++) {
+            if (typeof (miles[i]) == "number") {
                 temparray.push((miles[i] * 1.6).toFixed(2) + " ");
             }
-            else
-            {
+            else {
                 temparray.push(null);
             }
-            
-            
+
+
         }
-       
+
         return temparray;
     }
-   else if(typeof(miles) == "number")
-   {
+    else if (typeof (miles) == "number") {
         return (miles * 1.6).toFixed(2);
-   }
-   else
-   {
-    return null;
-   }
+    }
+    else {
+        return null;
+    }
 
-  
-  
+
+
 }
 
 
 
-function toCelsius(fahr)
-{
-    if(Array.isArray(fahr))
-    {
+const toCelsius = (fahr) => {
+    if (Array.isArray(fahr)) {
         let temparray = [];
 
-        for(let i = 0; i < fahr.length; i++)
-        {
+        for (let i = 0; i < fahr.length; i++) {
             //check
-            if(typeof(fahr[i])== "number")
-            {
-                temparray.push(((fahr[i] - 32) * (5.0/9.0)).toFixed(2) + " ");
+            if (typeof (fahr[i]) == "number") {
+                temparray.push(((fahr[i] - 32) * (5.0 / 9.0)).toFixed(2) + " ");
             }
-            else
-            {
+            else {
                 temparray.push(null);
             }
-            
+
         }
 
         return temparray;
     }
-    else if(typeof(fahr) == "number")
-    {
-        return ((fahr - 32) * (5.0/9.0)).toFixed(2);
+    else if (typeof (fahr) == "number") {
+        return ((fahr - 32) * (5.0 / 9.0)).toFixed(2);
     }
-    else
-    {
+    else {
         return null;
     }
-    
-   
+
+
 }
 
 
@@ -77,37 +63,31 @@ function toCelsius(fahr)
 
 
 //map
-function toLbs(kgs)
-{
+const toLbs = (kgs) => {
 
-    if(Array.isArray(kgs))
-    {
+    if (Array.isArray(kgs)) {
         let temparray = [];
 
-        for(let i = 0; i < kgs.length;i++)
-        {
-            if(typeof(kgs[i]) == "number")
-            {
+        for (let i = 0; i < kgs.length; i++) {
+            if (typeof (kgs[i]) == "number") {
                 temparray.push((kgs[i] * 2.205).toFixed(2) + " ");
             }
-            else
-            {
+            else {
                 temparray.push(null);
             }
-            
+
         }
 
         return temparray;
     }
-    else if(typeof(kgs) == "number")
-    {
+    else if (typeof (kgs) == "number") {
         return (kgs * 2.205).toFixed(2);
     }
-    else{
+    else {
         return null;
     }
 
-    
+
 
 }
 
@@ -115,96 +95,75 @@ function toLbs(kgs)
 
 
 
-function toMiles(km)
-{
-    if(Array.isArray(km))
-    {
+const toMiles = (km) => {
+    if (Array.isArray(km)) {
         let temparray = [];
-        for(let i = 0; i < km.length;i++)
-        {
-            if(typeof(km[i]) == "number")
-            {
+        for (let i = 0; i < km.length; i++) {
+            if (typeof (km[i]) == "number") {
                 temparray.push((km[i] * 0.62137119).toFixed(2) + " ");
             }
-            else
-            {
+            else {
                 temparray.push(null);
             }
-       
+
         }
 
         return temparray;
     }
-    else if(typeof(km) == "number")
-    {
+    else if (typeof (km) == "number") {
         return (km * 0.62137119).toFixed(2)
     }
-    else
-    {
+    else {
         return null;
     }
 
-    
-  
+
+
 }
 
 
-function toFahr(cel)
-{
-    if(Array.isArray(cel))
-    {
+const toFahr = (cel) => {
+    if (Array.isArray(cel)) {
         let temparray = [];
-        for(let i = 0; i < cel.length;i++)
-        {
-            if(typeof(cel[i]) == "number")
-            {
+        for (let i = 0; i < cel.length; i++) {
+            if (typeof (cel[i]) == "number") {
                 temparray.push(((cel[i] * 1.8) + 32).toFixed(2) + " ");
             }
-            else
-            {
+            else {
                 temparray.push(null);
             }
-          
+
         }
         return temparray;
     }
-    else if(typeof(cel) == "number")
-    {
+    else if (typeof (cel) == "number") {
         return ((cel * 1.8) + 32).toFixed(2);
     }
-    else
-    {
+    else {
         return null;
     }
 }
 
 
 
-function toKgs(lbs)
-{
-    if(Array.isArray(lbs))
-    {
+const toKgs = (lbs) => {
+    if (Array.isArray(lbs)) {
         let temparray = [];
-        for(let i = 0;i < lbs.length;i++)
-        {
-            if(typeof(lbs[i]) == "number")
-            {
+        for (let i = 0; i < lbs.length; i++) {
+            if (typeof (lbs[i]) == "number") {
                 temparray.push((lbs[i] / 2.205).toFixed(2) + " ");
             }
-            else
-            {
+            else {
                 temparray.push(null);
             }
-            
+
         }
         return temparray;
     }
-    else if(typeof(lbs) == "number")
-    {
+    else if (typeof (lbs) == "number") {
         return (lbs / 2.205).toFixed(2);
     }
-    else
-    {
+    else {
         return null;
     }
 
@@ -218,29 +177,27 @@ function toKgs(lbs)
 
 
 
-function selector (before, after)
-{
+const selector = (before, after) => {
     let a = before + after;
     let tell;
-    switch(a)
-    {
+    switch (a) {
         case "kmmiles":
             tell = (value) => toMiles(value);
             break;
 
 
         case "fahrcel":
-            tell = (value) => toCelsius(value); 
+            tell = (value) => toCelsius(value);
             break;
-        
+
         case "lbskgs":
             tell = (value) => toKgs(value);
             break;
 
         case "mileskm":
-            tell = (value) =>toKm(value);
+            tell = (value) => toKm(value);
             break;
-        
+
         case "celfahr":
             tell = (value) => toFahr(value);
             break;
@@ -252,7 +209,7 @@ function selector (before, after)
         default:
             return null;
 
-    
+
     }
 
     return tell;
