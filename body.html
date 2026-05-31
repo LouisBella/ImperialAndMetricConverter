@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div name = "navbarTabs">
+         <button class = "tablinks" onClick="showTab(0)" >Weight</button>
+          <button class = "tablinks"  onClick="showTab(1)">Distance</button>
+           <button class = "tablinks"  onClick="showTab(2)">Temperature</button>
+    </div>
+
+
+    <div id="Weight" class ="tabcontent">
+        <div id="toLbs">
+            <p>Converting from Kilograms to Pounds. To input multiple values please separate them using a comma ','</p>
+            <form>
+                <label for="kg1">Kilograms</label>
+                <input type="text" id="kg1">
+
+                
+                <label for="lbsOutput">Pounds</label>
+                <input type="text" id="lbsOutput" readonly>
+
+
+
+                <button type="button" onClick="convertKgs()">Submit</button>
+
+            </form>
+
+        </div>
+
+
+
+
+        <div id="toKgs">
+            <p>Converting from Pounds to Kilograms. To input multiple values please separate them using a comma ','</p>
+            <form>
+                <label for="lbs1">Pounds</label>
+                <input type="text" id="lbs1">
+
+                
+                <label for="kilogramsOutput">Kilograms</label>
+                <input type="text" id="kgsOutput" readonly>
+
+
+
+                <button type="button" onClick="convertLbs()">Submit</button>
+
+            </form>
+            
+        </div>
+    </div>
+
+
+
+
+
+
+    <div id="Distance" class ="tabcontent">
+
+        <div id="toKilo">
+            <p>Converting from Miles to Kilometers. To input multiple values please separate them using a comma ','</p>
+            <form>
+                <label for="mile1">Miles</label>
+                <input type="text" id="mile1">
+
+                
+                <label for="kilometersOutput">Kilometers</label>
+                <input type="text" id="kmOutput" readonly>
+
+
+
+                
+                <button type="button" onClick="convertMiles()">Submit</button>
+            </form>
+        </div>
+
+
+
+
+
+
+        <div id="toMiles">
+            <p>Converting from Kilometres to Miles. To input multiple values please separate them using a comma ','</p>
+            <form>
+                <label for="kilo1">Kilometres</label>
+                <input type="text" id="kilo1">
+
+                
+                <label for="milesOutput">Miles</label>
+                <input type="text" id="mileOutput" readonly>
+
+
+                <button type="button" onClick="convertKms()">Submit</button>
+
+
+            </form>
+        </div>
+    </div>
+
+    <div id="Temperature" class ="tabcontent">
+        <div id="toCelsius">
+            <p>Converting from Fahrenheit to Celsius. To input multiple values please separate them using a comma ','</p>
+            <form>
+                <label for="fahr1">Fahrenheit</label>
+                <input type="text" id="fahr1">
+
+                
+                <label for="celsiusOutput">Celsius</label>
+                <input type="text" id="celsOutput" readonly>
+
+                <button type="button" onClick="convertFahr()">Submit</button>
+
+
+
+            </form>
+        </div>
+
+
+
+
+
+
+        <div id="toFahrenheit">
+            <p>Converting from Celsius to Fahrenheit</p>
+            <form>
+                <label for="cels1">Celsius</label>
+                <input type="text" id="cels1">
+
+                
+                <label for="fahrenheitOutput">Fahrenheit</label>
+                <input type="text" id="fahrOutput" readonly>
+
+
+                <button type="button" onClick="convertCels()">Submit</button>
+
+
+
+            </form>
+        </div>
+    </div>
+
+
+
+    <script src ="inputManager.js"></script>
+    <script src="conversionFormulas.js"></script>
+   <script>
+    let kgsData = document.getElementById("kg1");
+
+    function convertKgs()
+    {
+        let temp = selector("kgs", "lbs");
+        let temp2 = temp(parseinput(kgsData.value));
+        document.getElementById("lbsOutput").value = temp2;
+      
+    }
+
+
+
+
+    let lbsData = document.getElementById("lbs1");
+
+    function convertLbs()
+    {
+
+        let temp = selector("lbs", "kgs");
+        let temp2 = temp(parseinput(lbsData.value));
+        document.getElementById("kgsOutput").value = temp2;
+    }
+
+
+
+
+    let mileData = document.getElementById("mile1");
+
+    function convertMiles()
+    {
+        let temp = selector("miles", "km");
+        let temp2 = temp(parseinput(mileData.value));
+        document.getElementById("kmOutput").value = temp2;
+    }
+
+
+
+    let kmData = document.getElementById("kilo1");
+
+    function convertKms()
+    {
+        let temp = selector("km", "miles")
+        let temp2 = temp(parseinput(kmData.value));
+         document.getElementById("mileOutput").value = temp2;
+
+   
+    }
+
+    
+
+
+
+
+    let fahrData = document.getElementById("fahr1");
+
+    function convertFahr()
+    {
+        let temp = selector("fahr", "cel");
+        let temp2 = temp(parseinput(fahrData.value));
+         document.getElementById("celsOutput").value = temp2;
+    }
+
+
+
+
+    let celsData = document.getElementById("cels1");
+
+    function convertCels()
+    {
+        let temp = selector("cel", "fahr");
+        let temp2 = temp(parseinput(celsData.value));
+         document.getElementById("fahrOutput").value = temp2;
+    }
+
+
+    function showTab(number)
+    {
+        let temp =  document.getElementsByClassName("tabcontent");
+        for(let i = 0; i < temp.length;i++)
+        {
+            if(i == number)
+            {
+                temp[i].style.display = "block";
+                continue;
+            }
+            
+            temp[i].style.display = "none";
+
+        }
+
+       
+    }
+    showTab(0);
+   </script>
+</body>
+</html>
